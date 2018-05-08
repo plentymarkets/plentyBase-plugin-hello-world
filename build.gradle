@@ -1,0 +1,41 @@
+plugins {
+    id 'java'
+}
+
+group 'eu.plentymarkets.plentybase.plugins'
+version '1.0.0'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.4.1'
+
+    compileOnly fileTree(dir: '/workspace/plenty-tool/build/libs', include: '*.jar')
+    annotationProcessor fileTree(dir: '/workspace/plenty-tool/build/libs', include: '*.jar')
+
+    compileOnly group: 'org.pf4j', name: 'pf4j', version: '2.6.0'
+    annotationProcessor group: 'org.pf4j', name: 'pf4j', version: '2.6.0'
+}
+
+task uberJar(type: Jar) {
+    manifest {
+        attributes(
+                "Plugin-Class": "helloworld.HelloWorldPlugin",
+                "Plugin-Id": "${project.name}",
+                "Plugin-Version": "${project.version}",
+                "Plugin-Description": "Description of my plentyBase plugin",
+                "Plugin-Provider": "plentysystems AG")
+    }
+
+    from sourceSets.main.output
+
+    dependsOn configurations.runtimeClasspath
+    from {
+        configurations.runtimeClasspath.findAll { it.name.endsWith('jar') }.collect { zipTree(it) }
+    }
+}
