@@ -9,17 +9,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Extension
-public class EventListenerExtension implements EventExtension
-{
+public class EventListenerExtension implements EventExtension {
     @Override
-    public Map<String, BaseEventListener> getEventListeners()
-    {
+    public Map<String, BaseEventListener> getEventListeners() {
         Map<String, BaseEventListener> eventListenerMap = new HashMap<>();
-        eventListenerMap.put("helloworld", new BaseEventListener()
-        {
+        eventListenerMap.put("helloworld", new BaseEventListener() {
             @Override
-            public void fireEvent(EventBean eventBean)
-            {
+            public void fireEvent(EventBean eventBean) {
                 System.out.println("Hello world!");
             }
         });

@@ -6,18 +6,15 @@ import com.plentymarkets.tool.plugins.api.context.PluginContext;
 import org.apache.logging.log4j.Logger;
 
 @PluginContext
-public class PluginAppContext
-{
+public class PluginAppContext {
     protected static PluginApplicationContext pluginApplicationContext;
 
     @ContextInjector
-    public static void inject(PluginApplicationContext context)
-    {
+    public static void inject(PluginApplicationContext context) {
         pluginApplicationContext = context;
     }
 
-    public static Logger getPluginLogger()
-    {
+    public static Logger getPluginLogger() {
         return pluginApplicationContext.getPluginLogger();
     }
 }

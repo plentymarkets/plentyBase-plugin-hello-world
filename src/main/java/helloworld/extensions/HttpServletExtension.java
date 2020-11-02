@@ -9,11 +9,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Extension
-public class HttpServletExtension implements ServletExtension
-{
+public class HttpServletExtension implements ServletExtension {
     @Override
-    public Map<String, HttpServlet> getServlets()
-    {
+    public Map<String, HttpServlet> getServlets() {
         Map<String, HttpServlet> httpServletMap = new HashMap<>();
         httpServletMap.put("/helloworld", new HelloWorldServlet());
 

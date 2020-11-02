@@ -8,17 +8,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 @Extension
-public class MenuExtension implements PopupMenuExtension
-{
+public class MenuExtension implements PopupMenuExtension {
     @Override
-    public void buildMenu(Menu menu)
-    {
+    public void buildMenu(Menu menu) {
         MenuItem menuItem = new MenuItem("Hello world!");
-        menuItem.addActionListener(new ActionListener()
-        {
+        menuItem.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e)
-            {
+            public void actionPerformed(ActionEvent e) {
                 System.out.println("Hello world!");
             }
         });

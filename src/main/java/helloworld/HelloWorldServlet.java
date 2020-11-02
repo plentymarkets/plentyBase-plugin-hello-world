@@ -9,11 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public class HelloWorldServlet extends HttpServlet
-{
+public class HelloWorldServlet extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
-    {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType(ContentType.TEXT_HTML.getMimeType());
 
         PrintWriter printWriter = resp.getWriter();

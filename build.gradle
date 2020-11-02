@@ -15,11 +15,12 @@ dependencies {
     // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
     testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.4.1'
 
-    compileOnly fileTree(dir: '/workspace/plenty-tool/build/libs', include: '*.jar')
-    annotationProcessor fileTree(dir: '/workspace/plenty-tool/build/libs', include: '*.jar')
+    compileOnly fileTree(dir: '{PATH TO plentyBase.jar HERE}', include: '*.jar')
+    annotationProcessor fileTree(dir: '{PATH TO plentyBase.jar HERE}', include: '*.jar')
 
-    compileOnly group: 'org.pf4j', name: 'pf4j', version: '2.6.0'
-    annotationProcessor group: 'org.pf4j', name: 'pf4j', version: '2.6.0'
+    // https://mvnrepository.com/artifact/org.pf4j/pf4j
+    compileOnly group: 'org.pf4j', name: 'pf4j', version: '3.4.1'
+    annotationProcessor group: 'org.pf4j', name: 'pf4j', version: '3.4.1'
 }
 
 task uberJar(type: Jar) {
